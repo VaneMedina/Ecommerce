@@ -38,14 +38,15 @@
 }
 
 .content .textBox a{
+    font-size: 1.1rem;
     text-decoration: none;
     display: inline-block;
-    padding: 1rem 3rem;
+    padding: 1rem 4rem;
     background: #017143;
     color: #fff;
     border-radius: 4px;
     margin-top: 2rem;
-    font-weight: 500;
+    font-weight: 600;
 
 }
 
@@ -242,4 +243,77 @@
     color: #017143;
     font-size: 2rem;
     transform: translateY(-5px)
+}
+
+
+/*CANVAS*/
+
+.offcanvas-end{
+    width: 38rem;
+}
+
+.offcanvas-end h5{
+    font-weight: 700;
+}
+
+.offcanvas-end .btn-close{
+    outline: none;
+  box-shadow: none;
+}
+
+.table .name-product{
+    width: 10rem;
+}
+
+#items .btn-danger{
+    border: none;
+    width: 1.8rem;
+    font-weight: 800;
+    background-color: #F20F38;
+}
+
+#items .btn-danger:focus{
+    outline: none;
+  box-shadow: none;
+}
+
+#items .btn-info:focus{
+    outline: none;
+  box-shadow: none;
+}
+
+#items .btn-info{
+    background-color: #017143 !important;
+    border: none;
+    width: 1.8rem;
+    color: #fff;
+    font-weight: 800;
+}
+
+tbody, td, tfoot, th, thead, tr{
+    text-align: center;
+}
+
+.table th{
+    font-weight: 700;
+}
+
+#footer{
+    height: 6rem;
+}
+
+#footer th{
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+#footer #vaciar-carrito{
+    background-color: #F20F38;
+    border: none;
+    padding: .4rem .8rem;
+}
+
+#footer #vaciar-carrito:focus{
+    outline: none;
+  box-shadow: none;
 }
