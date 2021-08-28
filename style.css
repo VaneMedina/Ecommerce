@@ -78,7 +78,7 @@
 }
 
 .thumb li:hover{
-    transform: translateY(-15px)
+    transform: translateY(-15px);
 }
 
 
@@ -189,7 +189,6 @@
 .products .card .price{
     font-weight: 700;
     margin-bottom: 1rem;
-    display: block;
 }
 
 
@@ -212,17 +211,6 @@
 .products .card button >i{
     padding-right: .5rem;
 }
-/*MODAL SECTION*/
-
-.modal{
-    background-color: #fff;
-    width: 70rem;
-    height: 35rem;
-    border-radius: .5rem;
-    box-shadow: 0 5px 15px 2px rgba(144, 149, 161, 0.3);
-    padding: 2rem;
-}
-
 
 /*CART SECTION*/
 
@@ -236,13 +224,11 @@
 .cart .btn-cart > i{
     color: #017143;
     font-size: 2rem;
-    transition: all ease-in-out .2s;
+    transition: 0.5s;
 }
 
 .cart .btn-cart > i:hover{
-    color: #017143;
-    font-size: 2rem;
-    transform: translateY(-5px)
+    transform: translateY(-15px);
 }
 
 
@@ -254,6 +240,7 @@
 
 .offcanvas-end h5{
     font-weight: 700;
+    padding-left: 8rem;
 }
 
 .offcanvas-end .btn-close{
@@ -317,3 +304,5 @@ tbody, td, tfoot, th, thead, tr{
     outline: none;
   box-shadow: none;
 }
+
+/*CART FULL*/
