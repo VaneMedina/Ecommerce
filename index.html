@@ -13,17 +13,19 @@
   <title>Hello, world!</title>
 </head>
 
-<body id="body">
+<body>
   <div class="circle"></div>
+  <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">Logo</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="me-auto"></div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
@@ -34,13 +36,75 @@
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>
+</header>
+<div class="cart">
+  <a class="btn btn-cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+    aria-controls="offcanvasTop"><i class="fas fa-shopping-cart"></i></a>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasTopLabel">Productos a agregar</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div id="canvas" class="offcanvas-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Acción</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody id="items"></tbody>
+        <tfoot>
+          <tr id="footer">
+            <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!--TEMPLATE CARRITO-->
+<template id="template-carrito">
+  <tr>
+    <th scope="row">id</th>
+    <td>Café</td>
+    <td>1</td>
+    <td>
+        <button class="btn btn-info btn-sm">
+            +
+        </button>
+        <button class="btn btn-danger btn-sm">
+            -
+        </button>
+    </td>
+    <td>$ <span>500</span></td>
+  </tr>
+</template>
+
+
+<!--FIN TEMPLATE CARRITO-->
+
+<!--TEMPLATE FOOTER-->
+<template id="template-footer">
+  <th scope="row" colspan="2">Total productos</th>
+  <td>10</td>
+  <td>
+      <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+          vaciar todo
+      </button>
+  </td>
+  <td class="font-weight-bold">$ <span>5000</span></td>
+</template>
+<!--FIN TEMPLATE FOOTER-->
+
+
 
   <section>
     <div class="content container">
@@ -56,9 +120,15 @@
       </div>
     </div>
     <ul class="thumb">
-      <li><img class="img1" src="/ProyectoCoder/images/img2.png" alt=""></li>
-      <li><img class="img6" src="/ProyectoCoder/images/img10.png" alt=""></li>
-      <li><img class="img5" src="/ProyectoCoder/images/img8.png" alt=""></li>
+      <div title="Tocame!">
+        <li><img class="img1" src="/ProyectoCoder/images/img2.png" alt=""></li>
+      </div>
+      <div title="Tocame!">
+        <li><img class="img6" src="/ProyectoCoder/images/img10.png" alt=""></li>
+      </div>
+      <div title="Tocame!">
+        <li><img class="img5" src="/ProyectoCoder/images/img8.png" alt=""></li>
+      </div>
     </ul>
 
     <ul class="sci">
@@ -95,89 +165,23 @@
       </div>
     </div>
   </section>
-<!-- PRODUCTS SECTION -->
+  <!-- PRODUCTS SECTION -->
   <section>
     <div class="products">
       <div class="container">
-      <div id="items" class="row justify-content-center">
-        <div class="card col-lg-3">
-          <img src="/ProyectoCoder/images/img2.png" alt="">
-          <h4 class="text-center">Café helado con salsa de chocolate amargo</h4>
-          <span class="price text-center">$1000</span>
-          <div class="text-center">
-            <a id="producto1" class="choose text-center" href=""><i class="fab fa-telegram-plane"></i> Seleccionar</a>
-          </div>
-        </div>
-        <div class="card col-lg-3">
-          <img src="/ProyectoCoder/images/img1.png" alt="">
-          <h4 class="text-center">Café helado con chocolate y canela</h4>
-          <span class="price text-center">$1000</span>
-          <div class="text-center">
-            <a class="choose text-center" href=""><i class="fab fa-telegram-plane"></i> Seleccionar</a>
-          </div>
-        </div>
-        <div class="card col-lg-3">
-          <img src="/ProyectoCoder/images/img3.png" alt="">
-          <h4 class="text-center">Jugo De Té Batido De Café Con Leche Café</h4>
-          <span class="price text-center">$1000</span>
-          <div class="text-center">
-            <a class="choose text-center" href=""><i class="fab fa-telegram-plane"></i> Seleccionar</a>
-          </div>
-        </div>
-        <div class="card col-lg-3">
-          <img src="/ProyectoCoder/images/img8.png" alt="">
-          <h4 class="text-center">Frappé oreo con crema batida</h4>
-          <span class="price text-center">$1000</span>
-          <div class="text-center">
-            <a class="choose text-center" href=""><i class="fab fa-telegram-plane"></i> Seleccionar</a>
-          </div>
-        </div>
-        <div class="card col-lg-3">
-          <img src="/ProyectoCoder/images/img5.png" alt="">
-          <h4 class="text-center">Frappe de chocolate con amareti.</h4>
-          <span class="price text-center">$1000</span>
-          <div class="text-center">
-            <a class="choose text-center" href=""><i class="fab fa-telegram-plane"></i> Seleccionar</a>
-          </div>
-        </div>
-        <div class="card col-lg-3">
-          <img src="/ProyectoCoder/images/img8.png" alt="">
-          <h4 class="text-center">Frappe chocolate</h4>
-          <span class="price text-center">$1000</span>
-          <div class="text-center">
-            <a class="choose text-center" href=""><i class="fab fa-telegram-plane"></i> Seleccionar</a>
-          </div>
-        </div>
-        <div class="card col-lg-3">
-          <img src="/ProyectoCoder/images/img9.png" alt="">
-          <h4 class="text-center">Té helado de sabor durazno y naranja</h4>
-          <span class="price text-center">$1000</span>
-          <div class="text-center">
-            <a class="choose text-center" href=""><i class="fab fa-telegram-plane"></i> Seleccionar</a>
-          </div>
-        </div>
-        <div class="card col-lg-3">
-          <img src="/ProyectoCoder/images/img2.png" alt="">
-          <h4 class="text-center">Frappe chocolate</h4>
-          <span class="price text-center">$1000</span>
-          <div class="text-center">
-            <a class="choose text-center" href=""><i class="fab fa-telegram-plane"></i> Seleccionar</a>
-          </div>
-        </div>
-
-
-        <template id="template-card">
-          <div class="card col-lg-3">
-            <img src="" alt="">
-            <h4 class="text-center">Titulo</h4>
-            <span class="price text-center">precio</span>
-            <div class="text-center">
-              <a class="choose text-center" href=""><i class="fab fa-telegram-plane"></i>Seleccionar</a>
+        <div id="cards" class="row justify-content-center">
+          <template id="template-card">
+            <div class="card col-lg-3 text-center">
+              <img src="" alt="">
+              <div class="card-body">
+                <h4>Titulo</h4>
+                <span class="price">precio</span>
+                <button class="choose" href="#"><i class="fab fa-telegram-plane"></i>Seleccionar</button>
+              </div>
             </div>
-          </div>
-        </template>
+          </template>
 
-      </div>
+        </div>
       </div>
     </div>
   </section>
@@ -186,22 +190,22 @@
 
   <!-- MODAL SECTION -->
   <div id="modal" class="modal">
-      <div id="flex" class="flex">
-          <div class="content-modal">
-              <div class="modal-product flex"> 
-                  <span id="close" class="close"><i class="fas fa-times"></i></span>
-                  <h3>Producto</h3>
-              </div>
-              <div class="modal-body"> 
-                  Lorem ipsum, dolor sit amet 
-                  consectetur adipisicing elit. 
-                  Accusamus, eveniet.
-              </div>
-              <div class="modal footer">
-                  <h3>Hecho por &copy; Vanesa Medina</h3>
-              </div>
-          </div>
+    <div id="flex" class="flex">
+      <div class="content-modal">
+        <div class="modal-product flex">
+          <span id="close" class="close"><i class="fas fa-times"></i></span>
+          <h3>Producto</h3>
+        </div>
+        <div class="modal-body">
+          Lorem ipsum, dolor sit amet
+          consectetur adipisicing elit.
+          Accusamus, eveniet.
+        </div>
+        <div class="modal footer">
+          <h3>Hecho por &copy; Vanesa Medina</h3>
+        </div>
       </div>
+    </div>
   </div>
 
 
@@ -209,7 +213,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
     integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous">
   </script>
-  <script src="/ProyectoCoder/js/bootstrap.min.js"></script>
+  <script src="/ProyectoCoder/JavaScript/js-bootstrap/bootstrap.min.js"></script>
   <!--Script custom-->
   <script src="/ProyectoCoder/JavaScript/main.js"></script>
   <script src="/ProyectoCoder/JavaScript/app.js"></script>

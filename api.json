@@ -1,39 +1,51 @@
 [
     {
-      "precio": "$1000",
+      "price": 120,
       "id": 1,
       "title": "Café helado con salsa de chocolate amargo",
-      "thumbnailUrl": "/ProyectoCoder/images/img2.png"
+      "thumbnailUrl": "images/img2.png"
     },
     {
-      "precio": "$1000",
+      "price": 320,
       "id": 2,
       "title": "Café helado con chocolate y canela",
-      "thumbnailUrl": "/ProyectoCoder/images/img2.png"
+      "thumbnailUrl": "images/img2.png"
     },
     {
-      "precio": "$1000",
+      "price": 160,
       "id": 3,
-      "title": "Jugo De Té Batido De Café Con Leche Café",
-      "thumbnailUrl": "/ProyectoCoder/images/img2.png"
+      "title": "Jugo De Té Batido De Café Con Leche",
+      "thumbnailUrl": "images/img3.png"
     },
     {
-      "precio": "$1000",
+      "price": 170,
       "id": 4,
       "title": "Frappé oreo con crema batida",
-      "thumbnailUrl": "img2.png"
+      "thumbnailUrl": "images/img3.png"
     },
     {
-      "precio": "$1000",
+      "price": 520,
       "id": 5,
-      "title": "Frappe de chocolate con amareti.",
-      "thumbnailUrl": "/ProyectoCoder/images/img2.png"
+      "title": "Frappe de chocolate con amareti",
+      "thumbnailUrl": "images/img3.png"
     },
     {
-      "precio": "$1000",
+      "price": 400,
       "id": 6,
-      "title": "Frappé chocolate",
-      "thumbnailUrl": "/ProyectoCoder/images/img2.png"
+      "title": "Frappé chocolate con kinder",
+      "thumbnailUrl": "images/img5.png"
+    },
+    {
+      "price": 25,
+      "id": 6,
+      "title": "Té helado de sabor durazno y naranja",
+      "thumbnailUrl": "images/img9.png"
+    },
+    {
+      "price": 369,
+      "id": 6,
+      "title": "Té helado de sabor algarroba y cacao",
+      "thumbnailUrl": "images/img8.png"
     }
   ]
   
