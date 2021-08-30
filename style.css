@@ -9,7 +9,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 2rem;
+    background-image: url(/ProyectoCoder/images/fondo2-01.png);
+    background-size: contain;
 }
 
 .content .textBox{
@@ -83,7 +84,7 @@
 
 
 .thumb li img{
-    width: 9rem;
+    width: 6rem;
     z-index: 9;
 }
 
@@ -96,6 +97,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    z-index: 99;
 }
 
 .sci li{
@@ -115,6 +117,7 @@
     color: #333;
 }
 
+
 .circle{
     position: absolute;
     top: 0;
@@ -125,14 +128,26 @@
     background-color: #017143;
     clip-path: circle(750px at right 999px);
 }
+/*
 
+.circle3{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 0;
+    height: 100%;
+    background-color: #FF822E;
+    clip-path: circle(250px at right 390px);
+}
 
+*/
 /*INFO SECTION*/
 
 .info{
     max-width: 100%;
     margin-top: 12.4rem;
-    height: 18rem;
+    height: 8rem;
 }
 
 .info .container-fluid{
@@ -144,7 +159,7 @@
     border: none;
     box-shadow: 0 5px 5px 2px rgba(144, 149, 161, 0.3);
     margin: 0 .3rem;
-    padding: 1.5rem;
+    padding: 1rem;
     border-left: 5px solid #017143;
     cursor: pointer;
 }
@@ -165,18 +180,14 @@
 
 /*PRODUCTS SECTION*/
 
+.products-area{
+    margin-top: 15rem;
+}
+
 .products .card{
     margin: 1.5rem;
     border: none;
-    width: 16rem;
-    height: 25rem;
-    box-shadow: 0 5px 15px 2px rgba(144, 149, 161, 0.3);
     cursor: pointer;
-}
-
-
-.products .card img{
-    height: 14rem;
 }
 
 .products .card h4{
@@ -305,4 +316,151 @@ tbody, td, tfoot, th, thead, tr{
   box-shadow: none;
 }
 
-/*CART FULL*/
+.form-control:focus{
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #017142bd;
+}
+
+.form-control{
+    border: 1px solid rgb(218, 218, 218);
+    background-color: transparent;
+    transition: all ease-in-out .3s;
+}
+
+
+/*FILTER BUTTONS*/
+
+#cards .product-item{
+    transition: all .1005s;
+}
+
+.category-list a{
+    text-decoration: none;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.category-list a:hover{
+    color: #f56613;
+    transition: all .2s;
+}
+
+.dropdown-toggle::after{
+    vertical-align: .100em;
+}
+
+.dropdown-menu{
+    box-shadow: 0 5px 5px 2px rgba(144, 149, 161, 0.3);
+    border: none;
+}
+
+.dropdown-menu li{
+    padding: 1rem 0;
+    text-align: center;
+}
+
+
+.category-list .category-item-active{
+    color: #f56613;
+}
+
+/*BRAND*/
+
+.navbar-brand > I{
+    color: #017143;
+    font-size: 3rem;
+}
+/*FIN BRAND*/
+
+/*NAV*/
+
+.navbar{
+    box-shadow: 0 5px 5px 2px rgba(144, 149, 161, 0.116);
+}
+
+.navbar-nav .nav-item .nav-link{
+    color: #333;
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.navbar-nav .nav-item .nav-link.active{
+    color: #017143;
+}
+
+/*FIN NAV*/
+
+/*BANNER*/
+
+.banner{
+    background-color: #036635;
+    position: relative;
+    top: 205px;
+    color: #fff;
+    padding: 3rem 0;
+}
+
+
+.banner h2{
+    font-weight: 800;
+    font-size: 3rem;
+    padding: 1rem 0 2rem 0;
+}
+
+.banner .card-info > i{
+    color: #f56613;
+    font-weight: 900;
+    font-size: 3rem;
+}
+
+.banner .card-info h3{
+    padding: 1rem 0;
+    font-weight: 600;
+}
+
+.banner .card-info p{
+    font-weight: 200;
+}
+
+
+/*FOOTER*/
+
+footer{
+    height: 20rem;
+    background-color: #017143;
+    margin-top: 5rem;
+}
+
+/*FIN FOOTER*/
+
+/*#2a8a15*/
+
+
+@media (max-width:1000px) {
+    .imgBox img{
+        display: none;
+    }
+}
+
+@media (max-width:1200px) {
+    .content{
+        margin-top: 6rem;
+    }
+    .content .imgBox{
+        transform: rotate(0deg);
+    }
+    .content .imgBox img{
+        max-width: 25rem;
+        height: 30rem;
+        transform: rotate(10deg);
+    }
+}
+
+@media (max-width: 400px) {
+    .circle{
+        display: none;
+    }
+
+}

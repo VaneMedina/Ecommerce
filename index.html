@@ -8,106 +8,128 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="/ProyectoCoder/css/bootstrap.min.css">
-
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <!--LightSlider css-->
+  <link rel="stylesheet" href="/ProyectoCoder/lightslider.css">
   <link rel="stylesheet" href="/ProyectoCoder/style.css">
   <title>Hello, world!</title>
 </head>
 
 <body>
+
   <div class="circle changeColor"></div>
   <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Logo</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="me-auto"></div>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">PRODUCTOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">CONTACTO</a>
-          </li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <!--BRAND-->
+        <a class="navbar-brand" href="#"><i class='bx bx-coffee-togo'></i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">CAFÉ</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                CATEGORIAS
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="category-list">
+                  <li><a href="#cards" class="category-item" category="all">Todo</a></li>
+                  <li><a href="#cards" class="category-item" category="ordenadores">Ordenadores</a></li>
+                  <li><a href="#cards" class="category-item" category="laptops">Laptops</a></li>
+                  <li><a href="#cards" class="category-item" category="smartphones">Smartphones</a></li>
+                  <li><a href="#cards" class="category-item" category="monitores">Monitores</a></li>
+                  <li><a href="#cards" class="category-item" category="audifonos">Audifonos</a></li>
+                </div>
+              </ul>
+
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="cart">
+    <a class="btn btn-cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"><i
+        id="Little-cart" class="fas fa-shopping-cart fa-cart-plus"></i></a>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasTopLabel">¡Tus productos están mas cerca! <i class="fab fa-telegram-plane"></i></h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div id="canvas" class="offcanvas-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="name-product" scope="col">Producto</th>
+              <th class="amount-product" scope="col">Cantidad</th>
+              <th scope="col">Acción</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody id="items"></tbody>
+          <tfoot>
+            <tr id="footer">
+              <th scope="row" colspan="5">Carrito vacío - ¡Comenzá a comprar <i class="far fa-smile"></i>!</th>
+            </tr>
+          </tfoot>
+        </table>
       </div>
     </div>
-  </nav>
-</header>
-<div class="cart">
-  <a class="btn btn-cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
-    aria-controls="offcanvasTop"><i id="Little-cart" class="fas fa-shopping-cart fa-cart-plus"></i></a>
-
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-    <div class="offcanvas-header">
-      <h5 id="offcanvasTopLabel">¡Tus productos están mas cerca! <i class="fab fa-telegram-plane"></i></h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div id="canvas" class="offcanvas-body">
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="name-product" scope="col">Producto</th>
-            <th class="amount-product" scope="col">Cantidad</th>
-            <th scope="col">Acción</th>
-            <th scope="col">Total</th>
-          </tr>
-        </thead>
-        <tbody id="items"></tbody>
-        <tfoot>
-          <tr id="footer">
-            <th scope="row" colspan="5">Carrito vacío - ¡Comenzá a comprar <i class="far fa-smile"></i>!</th>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
   </div>
-</div>
 
-<!--TEMPLATE CART-->
-<template id="template-cart">
-  <tr>
-    <td>Café</td>
-    <td>1</td>
-    <td>
+  <!--TEMPLATE CART-->
+  <template id="template-cart">
+    <tr>
+      <td>Café</td>
+      <td>1</td>
+      <td>
         <button class="btn btn-info btn-sm">
-            +
+          +
         </button>
         <button class="btn btn-danger btn-sm">
-            -
+          -
         </button>
-    </td>
-    <td>$ <span>500</span></td>
-  </tr>
-</template>
+      </td>
+      <td>$ <span>500</span></td>
+    </tr>
+  </template>
 
 
-<!--END TEMPLATE CART-->
+  <!--END TEMPLATE CART-->
 
-<!--TEMPLATE FOOTER-->
-<template id="template-footer">
-  <th scope="row" col>Total productos</th>
-  <td class="amount">10</td>
-  <td>
+  <!--TEMPLATE FOOTER-->
+  <template id="template-footer">
+    <th scope="row" col>Total productos</th>
+    <td class="amount">10</td>
+    <td>
       <button class="btn btn-danger btn-sm" id="vaciar-carrito">
-          vaciar todo
+        vaciar todo
       </button>
-  </td>
-  <td class="font-weight-bold">$ <span>5000</span></td>
-</template>
-<!--END TEMPLATE FOOTER-->
+    </td>
+    <td class="font-weight-bold">$ <span>5000</span></td>
+  </template>
+  <!--END TEMPLATE FOOTER-->
 
 
 
   <section>
+    <div class="circle3"></div>
     <div class="content container">
-      <div class="textBox">
+      <div class="textBox col-12">
         <h1>No es solo una bebida, es <span class="changeColor" id="title">coffe.</span></h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, commodi.
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, architecto!
@@ -120,17 +142,7 @@
         <img src="/ProyectoCoder/images/img2.png" alt="imagen principal" class="img-fluid coffee">
       </div>
     </div>
-    <ul class="thumb">
-      <div title="Tocame!">
-        <li><img class="img1" src="/ProyectoCoder/images/img2.png" alt=""></li>
-      </div>
-      <div title="Tocame!">
-        <li><img class="img6" src="/ProyectoCoder/images/img10.png" alt=""></li>
-      </div>
-      <div title="Tocame!">
-        <li><img class="img5" src="/ProyectoCoder/images/img8.png" alt=""></li>
-      </div>
-    </ul>
+    
 
     <ul class="sci">
       <li><a class="changeColor" href="#"><i class="fab fa-twitter"></i></a></li>
@@ -138,45 +150,47 @@
       <li><a class="changeColor" href="#"><i class="fab fa-instagram"></i></a></li>
     </ul>
   </section>
-  <section class="info">
-    <div class="container-fluid">
-      <div class="row justify-content-center">
-        <div class="card col-lg-2">
-          <h3><i class="fas fa-calculator"></i> Conocé lo que vas a pagar</h3>
-          <p>
-            Lorem ipsum dolor sit amet.
-            Lorem ipsum dolor sit amet
-          </p>
-        </div>
-        <div class="card col-lg-2">
-          <h3><i class="fas fa-hand-holding-usd"></i> No te quedes sin efectivo</h3>
-          <p>
-            Lorem ipsum dolor sit amet.
-            Lorem ipsum dolor sit amet
+ 
 
-          </p>
+  <section class="banner"> 
+    <div class="container text-center">
+      <div class="row d-flex justify-content-center">
+        <h2>COMPRÁ DESDE DONDE ESTÉS</h2>
+        <div class="col-lg-3 card-info">
+            <i class='bx bx-coffee-togo'></i>
+            <h3>Beneficios</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus, reiciendis.
+            </p>
         </div>
-        <div class="card col-lg-2">
-          <h3><i class="fab fa-telegram-plane"></i> Llevalo y disfrutalos donde quieras</h3>
-          <p>
-            Lorem ipsum dolor sit amet.
-            Lorem ipsum dolor sit amet
+        <div class="col-lg-3 card-info">
+          <i class="fas fa-hand-holding-usd"></i>
+          <h3>Beneficios</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem, minus.
           </p>
-        </div>
+      </div>
+      <div class="col-lg-3 card-info">
+        <i class="fas fa-laugh-wink"></i>
+        <h3>Beneficios</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, quos.
+        </p>
+    </div>
       </div>
     </div>
   </section>
+
+  <!--FILTERING-->
+
   <!-- PRODUCTS SECTION -->
-  <section>
+  <section class="products-area">
     <div class="products">
       <div class="container">
-        <div id="cards" class="row justify-content-center">
+        <div id="cards" class="row grid d-flex justify-content-center">
           <template id="template-card">
-            <div class="card col-lg-3 text-center">
-              <img src="" alt="">
+            <div id="card" class="card product-item col-lg-3 col-md-4 col-sm-12 text-center" category="">
+              <img class="img-fluid col-8 offset-2" src="" alt="">
               <div class="card-body">
                 <h4>Titulo</h4>
-                <p>$ <span class="price">precio</span></p>
+                <p>$ <span class="price">price</span></p>
                 <button class="choose" href="#"><i class="fab fa-telegram-plane"></i>Seleccionar</button>
               </div>
             </div>
@@ -187,18 +201,25 @@
     </div>
   </section>
 
+<footer>
 
+</footer>
 
   <!-- Option 2: Separate Popper and Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
     integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous">
   </script>
   <script src="/ProyectoCoder/JavaScript/js-bootstrap/bootstrap.min.js"></script>
+  <!--Jquey js file-->
+  <script src="/ProyectoCoder/JavaScript/js/jquery.3-6-0.js"></script>
   <!--Script custom-->
-  <script src="/ProyectoCoder/JavaScript/main.js"></script>
-  <script src="/ProyectoCoder/JavaScript/app.js"></script>
+  <script src="/ProyectoCoder/JavaScript/js/main.js"></script>
+  <script src="/ProyectoCoder/JavaScript/js/app.js"></script>
+  <script src="/ProyectoCoder/JavaScript/js/filterProducts.js"></script>
   <!--Font Awesome-->
   <script src="https://kit.fontawesome.com/798fa29871.js" crossorigin="anonymous"></script>
+
+  
 </body>
 
 </html>

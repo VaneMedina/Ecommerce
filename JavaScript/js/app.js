@@ -8,8 +8,10 @@ const fragment = document.createDocumentFragment();
 const templateCart = document.getElementById('template-cart').content;
 let cart = {};
 
+
+
 document.addEventListener('DOMContentLoaded', ()  =>{
-    fetchData();
+    getProducts();
     if(localStorage.getItem('cart')){
         cart = JSON.parse(localStorage.getItem('cart'));
         paintCart();
@@ -17,15 +19,19 @@ document.addEventListener('DOMContentLoaded', ()  =>{
 });
 
 // -Get the products of the fake api (api.json).
-const fetchData = async () => {
+const getProducts = async () => {
     try{
-        const res = await fetch('api.json');
-        const data = await res.json();
+        const result = await fetch('api.json');
+        const data = await result.json();
+        //data son mis 15 productos
+        console.log(data.length)
         showCards(data);
+        return data;
     }catch(error){
         console.log(error)
     }
 }
+
 
 
 // - Event -> when the customer press on 'sellecionar' button on the card, is added a product at the cart.
@@ -46,6 +52,7 @@ const showCards = data =>{
         templateCard.querySelector('span').textContent = product.price;
         templateCard.querySelector("img").setAttribute('src', product.thumbnailUrl);
         templateCard.querySelector('.choose').dataset.id = product.id;
+        templateCard.querySelector(".card").setAttribute('category', product.category);
         const clone = templateCard.cloneNode(true);
         fragment.appendChild(clone);
     });
@@ -53,12 +60,12 @@ const showCards = data =>{
 };
 
 
-
 const addToCart = e =>{
     if(e.target.classList.contains('choose')){
         setCart(e.target.parentElement);
         changeColorCart();
     }
+
     e.stopPropagation();
 }
 
@@ -69,6 +76,15 @@ const changeColorCart = () =>{
         cartPlus = document.getElementsByClassName('fa-cart-plus')[0];
         cartPlus.style.color = '#A993BF';
 }
+/** 
+const revertColorCart = () =>{
+    let cart = document.getElementById('Little-cart');
+        cart.classList.remove('fa-cart-plus');
+        cart.classList.add('fa-shopping-cart');
+        cartPlus = document.getElementsByClassName('fa-shopping-cart')[0];
+        cartPlus.style.color = '#017143';
+    }
+*/
 
 // -Is added products of the cart that take the values ​​of the card template
 const setCart = object =>{
@@ -151,3 +167,36 @@ const btnAction = e =>{
     e.stopPropagation();
 }
 
+
+
+//FILTERING
+
+/*
+const buttonFilter = document.getElementsByClassName('category_item')[1];
+const card = document.getElementById('card');
+
+buttonFilter.addEventListener('click', () =>{
+    let data = getProducts();
+    Object.values(data).forEach(product => {
+        if(product.category === (card[category="'+catProduct+'"])){
+            data.forEach(product =>{
+                templateCard.querySelector('h4').textContent = product.title;
+                templateCard.querySelector('span').textContent = product.price;
+                templateCard.querySelector("img").setAttribute('src', product.thumbnailUrl);
+                templateCard.querySelector('.choose').dataset.id = product.id;
+                templateCard.querySelector("#card").setAttribute('category', product.category);
+                const clone = templateCard.cloneNode(true);
+                fragment.appendChild(clone);
+            });
+            cards.appendChild(fragment);
+        }
+    }) 
+})
+
+
+/**console.log(product.category)
+    if(product.category == "ordenadores"){
+        console.log("hola")
+    } */
+
+ 
