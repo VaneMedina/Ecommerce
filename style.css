@@ -368,9 +368,15 @@ tbody, td, tfoot, th, thead, tr{
 
 /*BRAND*/
 
-.navbar-brand > I{
+.navbar-brand > i{
     color: #017143;
     font-size: 3rem;
+    transition: all ease-in-out .6s;
+}
+
+.navbar-brand > i:hover{
+    color: #f56613;
+    transform: rotate(360deg);
 }
 /*FIN BRAND*/
 
@@ -384,6 +390,11 @@ tbody, td, tfoot, th, thead, tr{
     color: #333;
     font-weight: 600;
     padding: 1rem;
+    transition: all ease-in-out .2s;
+}
+
+.navbar-nav .nav-item .nav-link:hover{
+    color: #036635;
 }
 
 .navbar-nav .nav-item .nav-link.active{

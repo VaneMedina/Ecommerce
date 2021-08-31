@@ -8,9 +8,9 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="/ProyectoCoder/css/bootstrap.min.css">
+
+  
   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-  <!--LightSlider css-->
-  <link rel="stylesheet" href="/ProyectoCoder/lightslider.css">
   <link rel="stylesheet" href="/ProyectoCoder/style.css">
   <title>Hello, world!</title>
 </head>
@@ -54,12 +54,13 @@
             </li>
           </ul>
           <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+            <input id="input" class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
+            <button id="button" class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
           </form>
         </div>
       </div>
     </nav>
+
   </header>
   <div class="cart">
     <a class="btn btn-cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"><i
@@ -91,6 +92,7 @@
     </div>
   </div>
 
+ 
   <!--TEMPLATE CART-->
   <template id="template-cart">
     <tr>
@@ -125,7 +127,7 @@
   <!--END TEMPLATE FOOTER-->
 
 
-
+<!--
   <section>
     <div class="circle3"></div>
     <div class="content container">
@@ -150,8 +152,8 @@
       <li><a class="changeColor" href="#"><i class="fab fa-instagram"></i></a></li>
     </ul>
   </section>
- 
-
+ -->
+<!--
   <section class="banner"> 
     <div class="container text-center">
       <div class="row d-flex justify-content-center">
@@ -177,11 +179,11 @@
       </div>
     </div>
   </section>
-
+-->
   <!--FILTERING-->
 
   <!-- PRODUCTS SECTION -->
-  <section class="products-area">
+  <section id="section-cards" class="products-area">
     <div class="products">
       <div class="container">
         <div id="cards" class="row grid d-flex justify-content-center">
@@ -195,16 +197,17 @@
               </div>
             </div>
           </template>
-
         </div>
+        <div id="not-found"></div>
+        <div id="show-pages" class="form-inline d-flex justify-content-center p-"></div>
       </div>
     </div>
   </section>
-
+<!--
 <footer>
 
 </footer>
-
+-->
   <!-- Option 2: Separate Popper and Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
     integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous">

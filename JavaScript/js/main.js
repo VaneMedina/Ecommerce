@@ -1,4 +1,4 @@
-function imgSlider(anything) {
+/*function imgSlider(anything) {
     document.querySelector('.coffee').src = anything;
 }
 
@@ -37,3 +37,4 @@ document.querySelector('.img5').addEventListener('click', function() {
     changeColorButton('#A0D3D9');
     changeColorTitle('#A0D3D9');
 })
+*/

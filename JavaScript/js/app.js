@@ -1,3 +1,5 @@
+const input = document.getElementById('input');
+const button = document.getElementById('button');
 const cards = document.getElementById('cards');
 const items = document.getElementById('items');
 const templateCard = document.getElementById('template-card').content;
@@ -6,8 +8,8 @@ const templateFooter = document.getElementById('template-footer').content;
 const canvas = document.getElementById('canvas');
 const fragment = document.createDocumentFragment();
 const templateCart = document.getElementById('template-cart').content;
+const notFound = document.getElementById('not-found');
 let cart = {};
-
 
 
 document.addEventListener('DOMContentLoaded', ()  =>{
@@ -18,19 +20,187 @@ document.addEventListener('DOMContentLoaded', ()  =>{
     }
 });
 
+const products = [
+    {
+      "price": 120,
+      "id": 1,
+      "title": "Café helado con salsa de chocolate amargo",
+      "thumbnailUrl": "images/img1.png",
+      "category": "smartphones"
+    },
+    {
+      "price": 320,
+      "id": 2,
+      "title": "Café con leche helado con salsa de chocolate",
+      "thumbnailUrl": "images/img2.png",
+      "category": "audifonos"
+    },
+    {
+      "price": 160,
+      "id": 3,
+      "title": "Jugo De Té Batido De Café Con Leche",
+      "thumbnailUrl": "images/img3.png",
+      "category": "audifonos"
+    },
+    {
+      "price": 170,
+      "id": 4,
+      "title": "Frappé oreo con crema batida",
+      "thumbnailUrl": "images/img5.png",
+      "category": "audifonos"
+    },
+    {
+      "price": 520,
+      "id": 5,
+      "title": "Frappe de chocolate con amareti",
+      "thumbnailUrl": "images/img10.png",
+      "category": "monitores"
+    },
+    {
+      "price": 400,
+      "id": 6,
+      "title": "Frappé chocolate con kinder",
+      "thumbnailUrl": "images/img5.png",
+      "category": "monitores"
+    },
+    {
+      "price": 25,
+      "id": 7,
+      "title": "Té helado de sabor durazno y naranja",
+      "thumbnailUrl": "images/img9.png",
+      "category": "ordenadores"
+    },
+    {
+      "price": 369,
+      "id": 7,
+      "title": "Té helado de sabor algarroba y cacao",
+      "thumbnailUrl": "images/img8.png",
+      "category": "ordenadores"
+    },
+    {
+      "price": 450,
+      "id": 8,
+      "title": "Té helado de sabor algarroba y cacao",
+      "thumbnailUrl": "images/img8.png",
+      "category": "Smartphones"
+    },
+    {
+      "price": 290,
+      "id": 9,
+      "title": "Té helado de sabor algarroba y cacao",
+      "thumbnailUrl": "images/img4.png",
+      "category": "ordenadores"
+    },
+    {
+      "price": 320,
+      "id": 10,
+      "title": "Té helado de sabor algarroba y cacao",
+      "thumbnailUrl": "images/img12.png",
+      "category": "ordenadores"
+    },
+    {
+      "price": 200,
+      "id": 12,
+      "title": "Té helado de sabor algarroba y cacao",
+      "thumbnailUrl": "images/img13.png",
+      "category": "laptops"
+    },
+    {
+      "price": 210,
+      "id": 13,
+      "title": "Té helado de sabor algarroba y cacao",
+      "thumbnailUrl": "images/img14.png",
+      "category": "laptops"
+    },
+    {
+      "price": 500,
+      "id": 14,
+      "title": "Té helado de sabor algarroba y cacao",
+      "thumbnailUrl": "images/img11.png",
+      "category": "laptops"
+    },
+    {
+      "price": 550,
+      "id": 15,
+      "title": "Té helado de sabor algarroba y cacao",
+      "thumbnailUrl": "images/img15.png",
+      "category": "laptops"
+    },
+    {
+      "price": 550,
+      "id": 15,
+      "title": "Té helado de sabor algarroba y cacao",
+      "thumbnailUrl": "images/img15.png",
+      "category": "laptops"
+    }
+  ]
+/*BÚSQUEDA */
+
+console.log(products)
+
+
+const filtrarProducts = () =>{
+    cards.innerHTML = "";
+    const textInput = input.value.toLowerCase();
+    for(let product of products){
+        let title = product.title.toLowerCase();
+        console.log(title)
+        if(title.indexOf(textInput) !== -1){
+            templateCard.querySelector('h4').textContent = product.title;
+            templateCard.querySelector('span').textContent = product.price;
+            templateCard.querySelector("img").setAttribute('src', product.thumbnailUrl);
+            templateCard.querySelector('.choose').dataset.id = product.id;
+            templateCard.querySelector(".card").setAttribute('category', product.category);
+            const clone = templateCard.cloneNode(true);
+            fragment.appendChild(clone);
+        }
+        cards.appendChild(fragment);
+    }
+    if(cards.innerHTML === ""){
+        notFound.innerHTML += `
+        <li>No se encontraron resultados</li>
+        <img src="ProyectoCoder/images/img5.png"/>
+        `
+    }
+    seeAll();
+}
+
+
+
+function seeAll(){
+    const showPages = document.getElementById('show-pages');
+    const button = document.createElement('button');
+    button.textContent = 'ver todo';
+    button.classList.add('btn');
+    showPages.appendChild(button);
+    button.addEventListener('click', function(){
+        showCards(products);
+        showPages.innerHTML = "";
+        notFound.innerHTML = "";
+    });
+
+}
+
+
+button.addEventListener('click', filtrarProducts);
+
+
+
+
 // -Get the products of the fake api (api.json).
 const getProducts = async () => {
     try{
         const result = await fetch('api.json');
         const data = await result.json();
-        //data son mis 15 productos
-        console.log(data.length)
         showCards(data);
-        return data;
     }catch(error){
         console.log(error)
     }
 }
+
+
+
+//button.addEventListener('click', filtrarProducts);
 
 
 
@@ -45,19 +215,10 @@ items.addEventListener('click', e =>{
     btnAction(e);
 });
 
+
+
 // -Take the data of the fake api and is put that information on the card template
-const showCards = data =>{
-    data.forEach(product =>{
-        templateCard.querySelector('h4').textContent = product.title;
-        templateCard.querySelector('span').textContent = product.price;
-        templateCard.querySelector("img").setAttribute('src', product.thumbnailUrl);
-        templateCard.querySelector('.choose').dataset.id = product.id;
-        templateCard.querySelector(".card").setAttribute('category', product.category);
-        const clone = templateCard.cloneNode(true);
-        fragment.appendChild(clone);
-    });
-    cards.appendChild(fragment);
-};
+
 
 
 const addToCart = e =>{
@@ -65,7 +226,7 @@ const addToCart = e =>{
         setCart(e.target.parentElement);
         changeColorCart();
     }
-
+    
     e.stopPropagation();
 }
 
@@ -75,30 +236,43 @@ const changeColorCart = () =>{
         cart.classList.add('fa-cart-plus');
         cartPlus = document.getElementsByClassName('fa-cart-plus')[0];
         cartPlus.style.color = '#A993BF';
-}
+    }
 /** 
-const revertColorCart = () =>{
-    let cart = document.getElementById('Little-cart');
-        cart.classList.remove('fa-cart-plus');
-        cart.classList.add('fa-shopping-cart');
-        cartPlus = document.getElementsByClassName('fa-shopping-cart')[0];
-        cartPlus.style.color = '#017143';
+ const revertColorCart = () =>{
+     let cart = document.getElementById('Little-cart');
+     cart.classList.remove('fa-cart-plus');
+     cart.classList.add('fa-shopping-cart');
+     cartPlus = document.getElementsByClassName('fa-shopping-cart')[0];
+     cartPlus.style.color = '#017143';
     }
-*/
+    */
 
-// -Is added products of the cart that take the values ​​of the card template
-const setCart = object =>{
-    const product = {
-        id : object.querySelector('.choose').dataset.id,
-        title: object.querySelector('h4').textContent,
-        price: object.querySelector('.price').textContent,
-        amount: 1
-    }
-
-    if(cart.hasOwnProperty(product.id)){
-        product.amount = cart[product.id].amount + 1;
-    }
-    cart[product.id] = {...product};
+   const showCards = data =>{
+       data.forEach(product =>{
+           templateCard.querySelector('h4').textContent = product.title;
+                       templateCard.querySelector('span').textContent = product.price;
+                       templateCard.querySelector("img").setAttribute('src', product.thumbnailUrl);
+                       templateCard.querySelector('.choose').dataset.id = product.id;
+                       templateCard.querySelector(".card").setAttribute('category', product.category);
+                       const clone = templateCard.cloneNode(true);
+                       fragment.appendChild(clone);
+       })
+           cards.appendChild(fragment);
+   }
+   
+   // -Is added products of the cart that take the values ​​of the card template
+   const setCart = object =>{
+       const product = {
+           id : object.querySelector('.choose').dataset.id,
+           title: object.querySelector('h4').textContent,
+           price: object.querySelector('.price').textContent,
+           amount: 1
+        }
+        
+        if(cart.hasOwnProperty(product.id)){
+            product.amount = cart[product.id].amount + 1;
+        }
+        cart[product.id] = {...product};
     paintCart();
 }
 
@@ -117,7 +291,7 @@ const paintCart = () =>{
     })
     items.appendChild(fragment);
     paintFooter();
-
+    
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
@@ -130,15 +304,15 @@ const paintFooter = () =>{
     }
     const nAmount = Object.values(cart).reduce((acc, {amount}) => acc + amount ,0)
     const nPrice = Object.values(cart).reduce((acc, {amount, price}) => acc + amount*price ,0)
-
+    
     templateFooter.querySelectorAll('td')[0].textContent = nAmount;
     templateFooter.querySelector('span').textContent = nPrice;
-
+    
     const clone = templateFooter.cloneNode(true);
     fragment.appendChild(clone);
-
+    
     footer.appendChild(fragment);
-
+    
     const btnDeleteAll = document.getElementById('vaciar-carrito');
     btnDeleteAll.addEventListener('click', () =>{
         cart = {};
@@ -169,34 +343,30 @@ const btnAction = e =>{
 
 
 
-//FILTERING
+
+/*PAGINATION*/
 
 /*
-const buttonFilter = document.getElementsByClassName('category_item')[1];
-const card = document.getElementById('card');
-
-buttonFilter.addEventListener('click', () =>{
-    let data = getProducts();
-    Object.values(data).forEach(product => {
-        if(product.category === (card[category="'+catProduct+'"])){
-            data.forEach(product =>{
-                templateCard.querySelector('h4').textContent = product.title;
-                templateCard.querySelector('span').textContent = product.price;
-                templateCard.querySelector("img").setAttribute('src', product.thumbnailUrl);
-                templateCard.querySelector('.choose').dataset.id = product.id;
-                templateCard.querySelector("#card").setAttribute('category', product.category);
-                const clone = templateCard.cloneNode(true);
-                fragment.appendChild(clone);
-            });
-            cards.appendChild(fragment);
-        }
-    }) 
-})
+function getPagination(data){
+    const showPages = document.getElementById('show-pages');
+    let pages = Math.ceil(data.length/4);
+    let start = 0;
+    for(let n=0; n < pages; n++){
+        const button = document.createElement('button');
+        button.textContent = n + 1;
+        button.className = "btn btn-primary mx-1";
+        showPages.appendChild(button);
+        button.setAttribute('click', '"showCards(\'' + start + '\')');
+        button.addEventListener('click', function(){
+            showCards(start);
+        });
+        start +=4;  
+    }
+}
+*/
 
 
-/**console.log(product.category)
-    if(product.category == "ordenadores"){
-        console.log("hola")
-    } */
 
- 
+
+
+
