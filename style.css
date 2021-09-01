@@ -14,6 +14,10 @@
     margin-top: 40px;
 }
 
+main{
+    
+    background-size: contain;
+}
 
 .content .textBox{
     position: relative;
@@ -450,14 +454,32 @@ footer{
 
 /*#2a8a15*/
 
-/*Button not found*/
+/*Not found*/
 
 .btn-green{
-    border: 1px solid #036635;
-    padding: 1rem;
+    border: 2px solid #036635;
+    padding: 1rem 2rem;
     border-radius: .2rem;
     text-transform: uppercase;
+    background-color: transparent;
+    font-weight: 600;
+    transition: all ease-in-out .3s;
+    margin-top: 4rem;
 }
+
+.btn-green:hover{
+    background-color: #017143;
+    color: #fff;
+}
+
+h6{
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 4rem 0;
+}
+/*End Not found*/
+
+
 
 @media (max-width:1000px) {
     .imgBox img{

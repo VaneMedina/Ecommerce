@@ -157,14 +157,20 @@ const filtrarProducts = () =>{
     }
     if(cards.innerHTML === ""){
         notFound.innerHTML += `
-        <li>No se encontraron resultados</li>
-        <img src="ProyectoCoder/images/img5.png"/>
+        <div class="container text-center">
+            <div class="col-lg-12">
+                <h6 class="col-lg-12">¡Ups, no se encontró el producto que estás buscando!</h6>
+                <img class="img-fluid w-50 py-4 col-lg-8" src="/ProyectoCoder/images/undraw_Location_search_re_ttoj.svg" alt="">
+            </div>
+        </div>
         `
     }
     seeAll();
     input.value = "";
     }else{
-        showCards(products)
+        showCards(products);
+        showPages.innerHTML = "";
+        notFound.innerHTML = "";
     }
 }
 
@@ -172,7 +178,7 @@ const filtrarProducts = () =>{
 
 function seeAll(){
     const button = document.createElement('button');
-    button.textContent = 'ver todo';
+    button.textContent = 'Ver todos los productos';
     button.classList.add('btn-green');
     showPages.appendChild(button);
     button.addEventListener('click', function(){
