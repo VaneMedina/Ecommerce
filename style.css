@@ -11,11 +11,10 @@
     align-items: center;
     background-image: url(/ProyectoCoder/images/fondo2-01.png);
     background-size: contain;
-    margin-top: 40px;
+    margin-top: 5rem;
 }
 
 main{
-    
     background-size: contain;
 }
 
@@ -190,6 +189,10 @@ main{
     margin-top: 15rem;
 }
 
+.products .container{
+    max-width: 1435px;
+}
+
 .products .card{
     margin: 1.5rem;
     border: none;
@@ -300,6 +303,9 @@ tbody, td, tfoot, th, thead, tr{
 
 .table th{
     font-weight: 700;
+}
+#template-footer .btn.buy{
+    background-color: #036635 !important;
 }
 
 #footer{
@@ -422,7 +428,7 @@ tbody, td, tfoot, th, thead, tr{
 
 .banner h2{
     font-weight: 800;
-    font-size: 3rem;
+    font-size: 2.7rem;
     padding: 1rem 0 2rem 0;
 }
 
@@ -435,6 +441,7 @@ tbody, td, tfoot, th, thead, tr{
 .banner .card-info h3{
     padding: 1rem 0;
     font-weight: 600;
+    font-size: 1.7rem;
 }
 
 .banner .card-info p{
@@ -447,7 +454,22 @@ tbody, td, tfoot, th, thead, tr{
 footer{
     height: 20rem;
     background-color: #017143;
-    margin-top: 5rem;
+    margin-top: 8rem;
+    padding: 3rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+footer .coffee{
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: .5rem;
+    font-size: 1.8rem;
+    color: #f56613;
+}
+
+footer .coffee span{
+    font-size: 1rem;
 }
 
 /*FIN FOOTER*/
@@ -458,13 +480,13 @@ footer{
 
 .btn-green{
     border: 2px solid #036635;
-    padding: 1rem 2rem;
+    padding: 1rem;
     border-radius: .2rem;
     text-transform: uppercase;
     background-color: transparent;
     font-weight: 600;
     transition: all ease-in-out .3s;
-    margin-top: 4rem;
+    margin-top: 3rem;
 }
 
 .btn-green:hover{
@@ -475,11 +497,34 @@ footer{
 h6{
     font-weight: 700;
     font-size: 2rem;
-    margin: 4rem 0;
+    margin: .5rem 0 3rem 0;
 }
 /*End Not found*/
 
+/*Pagination section*/
 
+#pagination{
+    margin-top: 4rem;
+}
+
+#pagination  .btn-pagination{
+    border: 2px solid #017143;
+    color: #017143;
+    border-radius: .3rem;
+    font-weight: 600;
+    margin: 0 .8rem !important;
+}
+
+#pagination  .btn-pagination:hover{
+    background-color: #017143;
+    color: #ffff;
+}
+
+#pagination  .btn-pagination:focus{
+    outline: none;
+    box-shadow: none;
+}
+/*End pagination section*/
 
 @media (max-width:1000px) {
     .imgBox img{

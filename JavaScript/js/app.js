@@ -10,11 +10,14 @@ const fragment = document.createDocumentFragment();
 const templateCart = document.getElementById('template-cart').content;
 const notFound = document.getElementById('not-found');
 const showPages = document.getElementById('show-pages');
+const pagination = document.getElementById('pagination');
 let cart = {};
-
+let start = 0;
 
 document.addEventListener('DOMContentLoaded', ()  =>{
     getProducts();
+    showCards(start);
+    getPagination();
     if(localStorage.getItem('cart')){
         cart = JSON.parse(localStorage.getItem('cart'));
         paintCart();
@@ -110,7 +113,7 @@ const products = [
       "price": 210,
       "id": 13,
       "title": "Té helado de sabor algarroba y cacao",
-      "thumbnailUrl": "images/img14.png",
+      "thumbnailUrl": "images/img17.png",
       "category": "Bakery"
     },
     {
@@ -129,11 +132,25 @@ const products = [
     },
     {
       "price": 550,
-      "id": 15,
+      "id": 16,
       "title": "Té helado de sabor algarroba y cacao",
       "thumbnailUrl": "images/img15.png",
       "category": "Sándwiches"
-    }
+    },
+    {
+        "price": 320,
+        "id": 17,
+        "title": "Café con leche helado con salsa de chocolate",
+        "thumbnailUrl": "images/img16 (1).png",
+        "category": "Delicatessen y Tortas"
+      },
+      {
+        "price": 320,
+        "id": 18,
+        "title": "Café con leche helado con salsa de chocolate",
+        "thumbnailUrl": "images/img16 (2).png",
+        "category": "Delicatessen y Tortas"
+      }
   ]
 
 
@@ -154,21 +171,24 @@ const filtrarProducts = () =>{
             fragment.appendChild(clone);
         }
         cards.appendChild(fragment);
+        getPagination();
+        notFound.innerHTML = "";
     }
     if(cards.innerHTML === ""){
-        notFound.innerHTML += `
+        notFound.innerHTML = `
         <div class="container text-center">
             <div class="col-lg-12">
                 <h6 class="col-lg-12">¡Ups, no se encontró el producto que estás buscando!</h6>
-                <img class="img-fluid w-50 py-4 col-lg-8" src="/ProyectoCoder/images/undraw_Location_search_re_ttoj.svg" alt="">
+                <img class="img-fluid w-25 py-4 col-lg-8" src="/ProyectoCoder/images/undraw_Location_search_re_ttoj.svg" alt="">
             </div>
         </div>
         `
     }
     seeAll();
     input.value = "";
+    pagination.innerHTML = "";
     }else{
-        showCards(products);
+        showCards(start);
         showPages.innerHTML = "";
         notFound.innerHTML = "";
     }
@@ -177,13 +197,15 @@ const filtrarProducts = () =>{
 
 
 function seeAll(){
+    showPages.innerHTML = "";
     const button = document.createElement('button');
     button.textContent = 'Ver todos los productos';
     button.classList.add('btn-green');
     showPages.appendChild(button);
     button.addEventListener('click', function(){
         cards.innerHTML = "";
-        showCards(products);
+        showCards(start);
+        getPagination();
         showPages.innerHTML = "";
         notFound.innerHTML = "";
     });
@@ -193,24 +215,12 @@ search.addEventListener('click', filtrarProducts);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // -Get the products of the fake api (api.json).
 const getProducts = async () => {
     try{
         const result = await fetch('api.json');
         const data = await result.json();
-        showCards(data);
+        //showCards(products);
     }catch(error){
         console.log(error)
     }
@@ -253,7 +263,7 @@ const changeColorCart = () =>{
         cart.classList.remove('fa-shopping-cart');
         cart.classList.add('fa-cart-plus');
         cartPlus = document.getElementsByClassName('fa-cart-plus')[0];
-        cartPlus.style.color = '#A993BF';
+        cartPlus.style.color = '#f56613';
     }
 /** 
  const revertColorCart = () =>{
@@ -265,19 +275,30 @@ const changeColorCart = () =>{
     }
     */
 
-   const showCards = data =>{
-       data.forEach(product =>{
-           templateCard.querySelector('h4').textContent = product.title;
-                       templateCard.querySelector('span').textContent = product.price;
-                       templateCard.querySelector("img").setAttribute('src', product.thumbnailUrl);
-                       templateCard.querySelector('.choose').dataset.id = product.id;
-                       templateCard.querySelector(".card").setAttribute('category', product.category);
-                       const clone = templateCard.cloneNode(true);
-                       fragment.appendChild(clone);
-       })
-           cards.appendChild(fragment);
+  
+
+   const showCards = (start) =>{
+    let  getProductsPage = [];
+    for(let i = start; i < (start + 6); i++){
+            getProductsPage.push(products[i]);
+       }
+       cards.innerHTML = "";
+       getProductsPage.forEach(product =>{
+        templateCard.querySelector('h4').textContent = product.title;
+                    templateCard.querySelector('span').textContent = product.price;
+                    templateCard.querySelector("img").setAttribute('src', product.thumbnailUrl);
+                    templateCard.querySelector('.choose').dataset.id = product.id;
+                    templateCard.querySelector(".card").setAttribute('category', product.category);
+                    const clone = templateCard.cloneNode(true);
+                    fragment.appendChild(clone);
+    })
+        cards.appendChild(fragment);
    }
    
+   
+
+
+
    // -Is added products of the cart that take the values ​​of the card template
    const setCart = object =>{
        const product = {
@@ -364,24 +385,20 @@ const btnAction = e =>{
 
 /*PAGINATION*/
 
-/*
-function getPagination(data){
-    const showPages = document.getElementById('show-pages');
-    let pages = Math.ceil(data.length/4);
+
+const getPagination = () =>{
+    let pages = Math.ceil(products.length/3);
     let start = 0;
-    for(let n=0; n < pages; n++){
+    for(let n=0; n < pages/2; n++){
         const button = document.createElement('button');
         button.textContent = n + 1;
-        button.className = "btn btn-primary mx-1";
-        showPages.appendChild(button);
-        button.setAttribute('click', '"showCards(\'' + start + '\')');
-        button.addEventListener('click', function(){
-            showCards(start);
-        });
-        start +=4;  
+        button.className = "btn btn-pagination mx-1";
+        button.setAttribute('onclick', 'showCards('+ start +')');
+        pagination.appendChild(button);
+        start += 6;  
     }
 }
-*/
+
 
 
 
