@@ -11,7 +11,9 @@
     align-items: center;
     background-image: url(/ProyectoCoder/images/fondo2-01.png);
     background-size: contain;
+    margin-top: 40px;
 }
+
 
 .content .textBox{
     position: relative;
@@ -375,7 +377,7 @@ tbody, td, tfoot, th, thead, tr{
 }
 
 .navbar-brand > i:hover{
-    color: #f56613;
+    color: #8F3D03;
     transform: rotate(360deg);
 }
 /*FIN BRAND*/
@@ -448,6 +450,14 @@ footer{
 
 /*#2a8a15*/
 
+/*Button not found*/
+
+.btn-green{
+    border: 1px solid #036635;
+    padding: 1rem;
+    border-radius: .2rem;
+    text-transform: uppercase;
+}
 
 @media (max-width:1000px) {
     .imgBox img{
