@@ -113,7 +113,7 @@ const products = [
       "price": 210,
       "id": 13,
       "title": "Té helado de sabor algarroba y cacao",
-      "thumbnailUrl": "images/img17.png",
+      "thumbnailUrl": "/ProyectoCoder/images/img17.png",
       "category": "Bakery"
     },
     {
@@ -127,7 +127,7 @@ const products = [
       "price": 550,
       "id": 15,
       "title": "Té helado de sabor algarroba y cacao",
-      "thumbnailUrl": "images/img15.png",
+      "thumbnailUrl": "/ProyectoCoder/images/img15.png",
       "category": "Sándwiches"
     },
     {
@@ -191,6 +191,7 @@ const searchProducts = () =>{
         showCards(start);
         showPages.innerHTML = "";
         notFound.innerHTML = "";
+        getPagination();
     }
 }
 
@@ -271,6 +272,13 @@ const changeColorCart = () =>{
         cart[product.id] = {...product};
     paintCart();
 }
+
+/*
+const medium = document.getElementById('medium');
+medium.addEventListener('click', function(){
+  console.log("hola");
+})
+*/
 
 
 // -Means that this function will show the products added and the 'canvas' section.
@@ -355,7 +363,6 @@ const getPagination = () =>{
         start += 6;  
     }
 }
-
 
 
 
