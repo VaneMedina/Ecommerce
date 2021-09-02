@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="/ProyectoCoder/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/ProyectoCoder/styles/css-bootstrap/bootstrap.min.css">
 
   
   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="/ProyectoCoder/style.css">
+  <link rel="stylesheet" href="/ProyectoCoder/styles/style.css">
   <title>Hello, world!</title>
 </head>
 
@@ -35,6 +35,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#">CAFÉ</a>
             </li>
+
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -187,18 +188,31 @@
   <section id="section-cards" class="products-area">
     <div class="products">
       <div class="container">
+
         <div id="cards" class="row grid d-flex justify-content-center">
           <template id="template-card">
             <div id="card" class="card product-item col-lg-3 col-md-4 col-sm-12 text-center" category="">
-              <img class="img-fluid col-8 offset-2" src="" alt="">
-              <div class="card-body">
+              <!--CARD IMG-->
+              <div id="imgCard" class="imgCard">
+                <img class="col-8" src="" alt="">
                 <h4>Titulo</h4>
-                <p>$ <span class="price">price</span></p>
-                <button class="choose" href="#"><i class="fab fa-telegram-plane"></i>Seleccionar</button>
+                <button id="select" class="choose" href="#"><i class="fab fa-telegram-plane"></i>Seleccionar</button>
+              </div>
+              <!--CARD BODY-->
+              <div class="card-body">
+                <div class="size">
+                  <h3>Tamaño:</h3>
+                    <span>M</span>
+                    <span>G</span>
+                </div>
+              <div>
+                <p>$ <span class="price"></span></p>
+              </div>
               </div>
             </div>
           </template>
         </div>
+
         <div id="not-found"></div>
         <div id="show-pages" class="form-inline d-flex justify-content-center p-"></div>
         <div id="pagination" class="form-inline d-flex justify-content-center p-"></div>

@@ -197,18 +197,100 @@ main{
     margin: 1.5rem;
     border: none;
     cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.products .card h4{
+.products .card .imgCard{
+    position: relative;
+    transition: .5s ease-in-out;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.products .card .imgCard img{
+    max-width: 100%;
+}
+
+.products .card:hover .imgCard{
+    transform: translateY(-100px);
+}
+
+.products .card .imgCard img{
+    transition: .5s ease-in-out;
+}
+
+
+.products .card .imgCard h4{
     color: #333;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 600;
+    padding: 1rem 0;
+}
+
+.products .card:hover .imgCard img{
+    transform: translate(-10px, -20px) rotate(-10deg) scale(1.2);
+}
+
+.products .card .card-body{
+    position: absolute;
+    bottom: -70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: .5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
     padding-top: 1rem;
 }
 
+.products .card .card-body .size h3{
+    font-size: 1rem;
+    padding-top: .5rem;
+}
+
+.products .card .card-body .size span{
+    font-size: 14px;
+}
+
+.products .card:hover .card-body{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50px);
+}
+
+.products .card .card-body .size{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.products .card .card-body .size span{
+    width: 26px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: .2rem;
+    background-color: #f56613;
+    text-align: center;
+    display: inline-block;
+    margin: 0 5px;
+    color: #fff;
+    font-weight: 700;
+}
+
+
+
 .products .card .price{
     font-weight: 700;
-    margin-bottom: 1rem;
 }
 
 
@@ -217,7 +299,7 @@ main{
     border: 2px solid #017143;
     color: #017143;
     background-color: transparent;
-    padding: .3rem 1rem;
+    padding: .2rem .5rem;
     border-radius: .2rem;
     font-weight: 600;
     transition: all ease-in-out .2s;
@@ -231,6 +313,10 @@ main{
 .products .card button >i{
     padding-right: .5rem;
 }
+
+/*FIN CARD SECTION*/
+
+
 
 /*CART SECTION*/
 
