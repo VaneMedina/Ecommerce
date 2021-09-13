@@ -1,27 +1,29 @@
 $(document).ready(function() {
-    $('#autoWidth').lightSlider({
+    $('#autoplay').lightSlider({
         autoWidth:true,
-        loop:true,
-        onSliderLoad: function() {
-            $('#autoWidth').removeClass('cs-hidden');
-        } 
+        loop:false,    
+        centerSlide:true,
+        auto:true,
+        pauseOnHover: true,
     });
 
     //testimonials
-    const apiURL = `https://jsonplaceholder.typicode.com/photos/1`;
-
+    const apiURL = `https://reqres.in/api/users/`;
+    
     $.getJSON(apiURL, function (resp, state) {
         if(state === "success"){
-            let data = resp;
-              $(".item-a").prepend(`<div class="testimonial card text-center">
-                                    <div class="text-center">
-                                        <img src="${data.thumbnailUrl}"/>
-                                    </div>
-                                    <h3 class="text-center">${data.title}</h3>
-                                  </div>`)
-            }  
-          
-      
+            for(let i = 1; i < 7; i++){
+                let data = resp.data[(i - 1)];
+                console.log(data)
+                    $(`#${i}`).prepend(`
+                                        <div class="text-center img-testimonial">
+                                            <img src="${data.avatar}"/>
+                                        </div>
+                                        <h3>${data.first_name} ${data.last_name} </h3>
+                                    `)
+                
+                }  
+            }
         }
     );
   });
