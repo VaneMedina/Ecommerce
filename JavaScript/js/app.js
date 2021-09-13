@@ -1,4 +1,6 @@
+
 $(document).ready(function() {
+
     $('#autoplay').lightSlider({
         autoWidth:true,
         loop:false,    
@@ -11,10 +13,9 @@ $(document).ready(function() {
     const apiURL = `https://reqres.in/api/users/`;
     
     $.getJSON(apiURL, function (resp, state) {
-        if(state === "success"){
+        if(state === 'success'){
             for(let i = 1; i < 7; i++){
                 let data = resp.data[(i - 1)];
-                console.log(data)
                     $(`#${i}`).prepend(`
                                         <div class="text-center img-testimonial">
                                             <img src="${data.avatar}"/>
@@ -26,4 +27,13 @@ $(document).ready(function() {
             }
         }
     );
+
+      //loader
+
+      $(window).on('load', function(){
+        $('.preloader').fadeOut(2000);
+        $('body').fadeIn(2000);
+    });
+
+    
   });

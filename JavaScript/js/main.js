@@ -179,7 +179,7 @@ const searchProducts = () =>{
         <div class="container text-center">
             <div class="col-lg-12">
                 <h6 class="col-lg-12">¡Ups, no se encontró el producto que estás buscando!</h6>
-                <img class="img-fluid w-25 py-4 col-lg-8" src="../../images/undraw_Location_search_re_ttoj.svg" alt="">
+                <img class="img-fluid w-25 py-4 col-lg-8" src="../images/undraw_Location_search_re_ttoj.svg" alt="">
             </div>
         </div>
         `

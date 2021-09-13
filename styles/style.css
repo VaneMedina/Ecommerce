@@ -5,6 +5,32 @@
 }
 
 
+/*PRELOADER*/
+
+.preloader{
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    position: fixed;
+    z-index: 999;
+}
+
+.preloader > i{
+    font-size: 4rem;
+    color: #036635;
+    animation: rota 1.5s linear infinite;
+}
+
+
+@keyframes rota {
+    to {
+        transform: rotate(360deg);
+      }
+}
+
+/*END PRELOADER*/
+
+
 .content{
     display: flex;
     justify-content: space-between;
@@ -476,6 +502,7 @@ tbody, td, tfoot, th, thead, tr{
     color: #8F3D03;
     transform: rotate(360deg);
 }
+
 /*FIN BRAND*/
 
 /*NAV*/
@@ -513,8 +540,8 @@ tbody, td, tfoot, th, thead, tr{
 
 
 .banner h2{
-    font-weight: 800;
-    font-size: 2.7rem;
+    font-weight: 700;
+    font-size: 2.3rem;
     padding: 1rem 0 2rem 0;
 }
 
@@ -527,7 +554,7 @@ tbody, td, tfoot, th, thead, tr{
 .banner .card-info h3{
     padding: 1rem 0;
     font-weight: 600;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 
 .banner .card-info p{
@@ -588,7 +615,7 @@ h6{
 /*Testimonial section*/
 
 .testimonials{
-    padding: 5rem;
+    padding: 5rem 8rem;
     margin-top: 5rem;
     background-color: #f3f3f38e;
 }
@@ -639,7 +666,7 @@ h6{
 }
 
 .testimonials span > i{
-    color: #F20F38;
+    color: #f56613;
     margin-top: .5rem;
 }
 
@@ -675,6 +702,9 @@ h6{
     box-shadow: none;
 }
 /*End pagination section*/
+
+
+
 
 @media (max-width:1000px) {
     .imgBox img{
