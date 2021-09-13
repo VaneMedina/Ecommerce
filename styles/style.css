@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+}
 
 /*PRELOADER*/
 
@@ -511,19 +514,28 @@ tbody, td, tfoot, th, thead, tr{
     box-shadow: 0 5px 5px 2px rgba(144, 149, 161, 0.116);
 }
 
-.navbar-nav .nav-item .nav-link{
+.navbar .nav-item .nav-link{
     color: #333;
     font-weight: 600;
     padding: 1rem;
     transition: all ease-in-out .2s;
 }
 
-.navbar-nav .nav-item .nav-link:hover{
+.navbar .nav-item .nav-link > i{
+    color: #006E49;
+}
+
+.navbar .nav-item .nav-link:hover{
     color: #036635;
 }
 
-.navbar-nav .nav-item .nav-link.active{
+.navbar .nav-item .nav-link.active{
     color: #017143;
+}
+
+.navbar-light .navbar-toggler{
+    border: none !important;
+    color: transparent;
 }
 
 /*FIN NAV*/
@@ -531,11 +543,9 @@ tbody, td, tfoot, th, thead, tr{
 /*BANNER*/
 
 .banner{
-    background-color: #036635;
-    position: relative;
-    top: 160px;
+    background-color: #006241;
     color: #fff;
-    padding: 3rem 0;
+    padding: 2rem 0;
 }
 
 
@@ -566,9 +576,9 @@ tbody, td, tfoot, th, thead, tr{
 
 footer{
     background-color: #017143;
-    padding: 3rem;
+    padding: 3rem 3rem 0 3rem;
     color: #fff;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 footer .coffee{
@@ -615,9 +625,7 @@ h6{
 /*Testimonial section*/
 
 .testimonials{
-    padding: 5rem 8rem;
-    margin-top: 5rem;
-    background-color: #f3f3f38e;
+    padding: 6rem 0;
 }
 
 .lSNext, .lSPrev{
@@ -638,8 +646,9 @@ h6{
     transform: scale(1.05);
 }
 .testimonials h2{
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 600;
+    color: #333;
 }
 
 
@@ -678,10 +687,127 @@ h6{
 }
 /*Fin Testimonial section*/
 
+/*PRODUCTOS*/
+
+.layout{
+    background-color: #f4f4f4;
+    padding: 6rem 0;
+}
+.row{
+    --bs-gutter-x: 0rem;
+}
+
+.layout .card{
+    padding: 1.5rem;
+    border: none;
+    margin: 1.5rem;
+    box-shadow: 0 5px 15px 2px rgba(144, 149, 161, 0.3);
+    border-radius: .1rem;
+    border-left: 5px solid #006E49;
+}
+
+.layout .card-big .image{
+    height: 10%;
+    width: 100%;
+    object-fit: cover;
+    margin-top: -3rem;
+}
+
+.layout .card-big img{
+    width: 100%;
+    height: 100%;
+    transform: rotate(-10deg);
+}
+
+.layout .card-2::before{
+    content: "02";
+}
+
+.layout .card-3::before{
+    content: "03";
+}
+.card-3, .card-4{
+    height: 30vh;
+}
+.card-2{
+    height: 28vh;
+}
+
+.layout .card-4{
+    background-color: #006E49;
+}
+
+.layout .card-4 h5, .layout .card-4 h5 a{
+    color: #fff;
+    font-weight: 600;
+    transition: .25s;
+    font-size: 2.3rem;
+}
+
+.layout .card-4 h5 a{
+    color: #fff;
+}
+
+.layout .card-4 a:hover{
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+
+.layout .card-4 h5 > span{
+    display: block;
+    line-height: 50px;
+    font-size: 2.3rem;
+}
+
+.layout .card-4 h5 span > i{
+    font-size: 2.4rem;
+    vertical-align: top !important;
+}
+
+.layout .card-big::before, .card-2::before, .card-3::before{
+    content: "01";
+    font-size: 2rem;
+    opacity: .4;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.layout .card .text-card{
+    max-width: 300px;
+    margin-top: -1rem;
+}
+
+
+.layout .card h4{ 
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+
+.layout p{
+    font-weight: 300;
+    color: #333;
+    margin-top: 1rem;
+    line-height: 28px;
+    font-size: 1.1rem;
+}
+
+/*PRODUCTOS*/
+
+
+/*HERO AREA*/
+
+.carousel-item{
+    height: 70vh;
+}
+/*END HERO AREA*/
+
+
 /*Pagination section*/
 
 #pagination{
-    margin-top: 4rem;
+    margin: 5rem auto;
 }
 
 #pagination  .btn-pagination{
@@ -726,6 +852,12 @@ h6{
     }
 }
 
+@media (max-width: 770px) {
+    .carousel-item{
+        height: auto;
+    }
+}
+
 @media (max-width: 520px) {
     .testimonials{
         padding: 0;
@@ -742,3 +874,8 @@ h6{
     
 
 }
+
+
+/*ATRIBUCION FREEPIK*/
+
+/*<a href='https://www.freepik.es/fotos/negro'>Foto de Negro creado por freepik - www.freepik.es</a>*/

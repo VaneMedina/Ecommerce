@@ -30,10 +30,13 @@ $(document).ready(function() {
 
       //loader
 
+      /*
       $(window).on('load', function(){
         $('.preloader').fadeOut(2000);
         $('body').fadeIn(2000);
-    });
+        $('.preloader').hide();
+        
+    });*/
 
     
   });
