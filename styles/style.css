@@ -575,7 +575,7 @@ tbody, td, tfoot, th, thead, tr{
 /*FOOTER*/
 
 footer{
-    background-color: #017143;
+    background-color: #006E49;
     padding: 3rem 3rem 0 3rem;
     color: #fff;
     font-weight: 500;
@@ -587,10 +587,27 @@ footer .coffee{
     letter-spacing: .5rem;
     font-size: 1.8rem;
     color: #f56613;
+    font-weight: 800;
+}
+footer p{
+    font-size: 1.1rem;
 }
 
+footer .copy a{
+    color: #f56613;
+    font-weight: 600;
+}
 footer .coffee span{
     font-size: 1rem;
+}
+
+footer .social-media a{
+    color: #f56613;
+    padding: .4rem;
+}
+
+footer .social-media a > i{
+    font-size: 1.4rem;
 }
 
 /*FIN FOOTER*/
@@ -625,8 +642,12 @@ h6{
 /*Testimonial section*/
 
 .testimonials{
-    padding: 6rem 0;
+    padding: 6rem 0 12rem 0;
+    background-image: url('../images/testimonial3_Mesa\ de\ trabajo\ 1.png');
+    background-size: cover;
+    background-position-y: bottom;
 }
+
 
 .lSNext, .lSPrev{
     opacity: 1 !important;
@@ -634,21 +655,26 @@ h6{
 .testimonial.card{
     border: none;
     border-radius: .2rem;
-    width: 25rem;
-    height: 18rem;
-    box-shadow: 0 5px 15px 2px rgba(144, 149, 161, 0.3);
+    width: 35rem;
+    height: 20rem;
     margin: 1.5rem .5rem;
     transition: all ease-in-out .35s;
     overflow: hidden;
+    background-color: transparent;
 }
+
+.testimonials .text-testimonial{
+    margin-top: 3rem;
+}
+
 
 .testimonial.card:hover{
     transform: scale(1.05);
 }
 .testimonials h2{
     font-size: 2.2rem;
-    font-weight: 600;
-    color: #333;
+    font-weight: 700;
+    color: #006241;
 }
 
 
@@ -659,18 +685,28 @@ h6{
 }
 
 .testimonial.card img{
-    height: 130px;
-    width: 130px;
+    height: 160px;
+    width: 160px;
     border-radius: 50%;
     margin-top: .5rem;
     object-fit: cover;
+    box-shadow: 0 15px 30px rgba(0,0,0,.2),
+                    0 10px 10px rgba(0,0,0,.2);
 }
 
+.testimonials .btn-testimonial{
+    background-color: #f56613;
+    font-weight: 600;
+    border-radius: .2rem;
+    padding: .6rem 3rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,.2),
+                    0 10px 10px rgba(0,0,0,.2);
+}
 
 .testimonial.card h3{
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     max-width: 300px;
-    margin: 1rem auto 0 auto;
+    margin: 2rem auto 0 auto;
     font-weight: 600;
 }
 
@@ -680,7 +716,7 @@ h6{
 }
 
 .testimonial p{
-    font-size: .9rem;
+    font-size: 1.1rem;
     font-weight: 300;
     margin-top: .3rem;
     padding: 0 1.3rem;
@@ -690,9 +726,11 @@ h6{
 /*PRODUCTOS*/
 
 .layout{
-    background-color: #f4f4f4;
-    padding: 6rem 0;
+    background-image: url(../images/patron2.svg);
+    background-size: cover;
+    padding: 8rem 0;
 }
+
 .row{
     --bs-gutter-x: 0rem;
 }
@@ -701,7 +739,8 @@ h6{
     padding: 1.5rem;
     border: none;
     margin: 1.5rem;
-    box-shadow: 0 5px 15px 2px rgba(144, 149, 161, 0.3);
+    box-shadow: 0 15px 30px rgba(0,0,0,.2),
+                    0 10px 10px rgba(0,0,0,.2);
     border-radius: .1rem;
     border-left: 5px solid #006E49;
 }
@@ -768,9 +807,9 @@ h6{
 .layout .card-big::before, .card-2::before, .card-3::before{
     content: "01";
     font-size: 2rem;
-    opacity: .4;
     font-weight: 600;
     letter-spacing: 3px;
+    color: #f56613;
 }
 
 .layout .card .text-card{
@@ -798,9 +837,21 @@ h6{
 
 /*HERO AREA*/
 
-.carousel-item{
-    height: 70vh;
+.hero-area{
+    background-image: url('../images/banner5_Mesa\ de\ trabajo\ 1.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    object-fit: cover;
+    height: 85vh;
+    width: 100%;
+    background-repeat: no-repeat;
 }
+
+.carousel-item{
+    height: 85vh;
+}
+
 /*END HERO AREA*/
 
 
