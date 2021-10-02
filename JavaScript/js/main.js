@@ -12,9 +12,9 @@ const notFound = document.getElementById('not-found');
 const showPages = document.getElementById('show-pages');
 const pagination = document.getElementById('pagination');
 const card = document.getElementById('card');
-let amountCart = document.getElementById('amount-cart');
 let cart = {};
 let start = 0;
+
 document.addEventListener('DOMContentLoaded', ()  =>{
     showCards(start);
     getPagination();
@@ -153,6 +153,7 @@ const products = [
       }
   ]
 
+
 /*searching*/  
 const searchProducts = () =>{
     cards.innerHTML = "";
@@ -211,6 +212,7 @@ function seeAll(){
 
 search.addEventListener('click', searchProducts);
 
+// - Event -> when the customer press on 'sellecionar' button on the card, is added a product at the cart.
 cards.addEventListener('click', e =>{
     addToCart(e);
 });
@@ -219,31 +221,42 @@ items.addEventListener('click', e =>{
     btnAction(e);
 });
 
+
+// -Take the data of the fake api and is put that information on the card template
 const addToCart = e =>{
-  if(e.target.classList.contains('choose')){
-      setCart(e.target.parentElement);
-  }
-  
-  e.stopPropagation();
+    if(e.target.classList.contains('choose')){
+        setCart(e.target.parentElement.parentElement); //¿Como puedo acceder a id=card sin escribir parentElement 2 veces?
+        changeColorCart();
+    }
+    
+    e.stopPropagation();
 }
 
-const showCards = (start) =>{
-  let  getProductsPage = [];
-  for(let i = start; i < (start + 6); i++){
-          getProductsPage.push(products[i]);
-      }
-      cards.innerHTML = "";
-      getProductsPage.forEach(product =>{
-      templateCard.querySelector('h4').textContent = product.title;
-                  templateCard.querySelectorAll('span')[2].textContent = product.price;
-                  templateCard.querySelector("img").setAttribute('src', product.thumbnailUrl);
-                  templateCard.querySelector('.choose').dataset.id = product.id;
-                  templateCard.querySelector(".card").setAttribute('category', product.category);
-                  const clone = templateCard.cloneNode(true);
-                  fragment.appendChild(clone);
-  })
-      cards.appendChild(fragment);
-  }
+const changeColorCart = () =>{
+    let cart = document.getElementById('Little-cart');
+        cart.classList.remove('fa-shopping-cart');
+        cart.classList.add('fa-cart-plus');
+        cartPlus = document.getElementsByClassName('fa-cart-plus')[0];
+        cartPlus.style.color = '#f56613';
+    }
+  
+   const showCards = (start) =>{
+    let  getProductsPage = [];
+    for(let i = start; i < (start + 6); i++){
+            getProductsPage.push(products[i]);
+       }
+       cards.innerHTML = "";
+       getProductsPage.forEach(product =>{
+        templateCard.querySelector('h4').textContent = product.title;
+                    templateCard.querySelectorAll('span')[2].textContent = product.price;
+                    templateCard.querySelector("img").setAttribute('src', product.thumbnailUrl);
+                    templateCard.querySelector('.choose').dataset.id = product.id;
+                    templateCard.querySelector(".card").setAttribute('category', product.category);
+                    const clone = templateCard.cloneNode(true);
+                    fragment.appendChild(clone);
+    })
+        cards.appendChild(fragment);
+   }
 
    
    // -Is added products of the cart that take the values ​​of the card template
@@ -262,22 +275,30 @@ const showCards = (start) =>{
     paintCart();
 }
 
+/*
+const medium = document.getElementById('medium');
+medium.addEventListener('click', function(){
+  console.log("hola");
+})
+*/
+
+
 // -Means that this function will show the products added and the 'canvas' section.
 const paintCart = () =>{
-  items.innerHTML = "";
-  Object.values(cart).forEach(product =>{
-      templateCart.querySelectorAll('td')[0].textContent = product.title;
-      templateCart.querySelectorAll('td')[1].textContent = product.amount;
-      templateCart.querySelector('.btn-info').dataset.id = product.id;
-      templateCart.querySelector('.btn-danger').dataset.id = product.id;
-      templateCart.querySelector('span').textContent = product.price * product.amount;
-      const clone = templateCart.cloneNode(true);
-      fragment.appendChild(clone);
-  })
-  items.appendChild(fragment);
-  paintFooter();
-  
-  localStorage.setItem('cart', JSON.stringify(cart));
+    items.innerHTML = "";
+    Object.values(cart).forEach(product =>{
+        templateCart.querySelectorAll('td')[0].textContent = product.title;
+        templateCart.querySelectorAll('td')[1].textContent = product.amount;
+        templateCart.querySelector('.btn-info').dataset.id = product.id;
+        templateCart.querySelector('.btn-danger').dataset.id = product.id;
+        templateCart.querySelector('span').textContent = product.price * product.amount;
+        const clone = templateCart.cloneNode(true);
+        fragment.appendChild(clone);
+    })
+    items.appendChild(fragment);
+    paintFooter();
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 // -Means that this function will show the slash to delete and show the amount of the products on the 'canvas' section.
@@ -325,6 +346,9 @@ const btnAction = e =>{
     }
     e.stopPropagation();
 }
+
+
+
 
 /*PAGINATION*/
 
