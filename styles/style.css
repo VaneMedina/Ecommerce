@@ -7,23 +7,9 @@
 a{
     text-decoration: none;
 }
-
-/*PRELOADER*/
-
-.preloader{
-    width: 100%;
-    height: 100vh;
-    background-color: #fff;
-    position: fixed;
-    z-index: 999;
+html {
+    scroll-behavior: smooth;
 }
-
-.preloader > i{
-    font-size: 4rem;
-    color: #036635;
-    animation: rota 1.5s linear infinite;
-}
-
 
 @keyframes rota {
     to {
@@ -38,15 +24,19 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-image: url(../images/fondo2-01.png);
-    background-size: contain;
     margin-top: 5rem;
 }
 
 main{
     background-size: contain;
 }
-
+.main-section{
+    background-image: url('../images/patron2.svg');
+    max-height: 60vh;
+    min-height: 60vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .content .textBox{
     position: relative;
     max-width: 35rem;
@@ -126,7 +116,7 @@ main{
 .sci{
     position: fixed;
     display: flex;
-    top: 46%;
+    top: 60vh;
     left: 1%;
     justify-content: center;
     align-items: center;
@@ -143,7 +133,7 @@ main{
     display: inline-block;
     margin: 1rem 0;
     font-size: 1.5rem;
-    color: #017143;
+    color: #f56613;
     transition: all ease-in .2s;
 }
 
@@ -151,31 +141,6 @@ main{
     color: #333;
 }
 
-
-.circle{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 0;
-    height: 100%;
-    background-color: #017143;
-    clip-path: circle(750px at right 999px);
-}
-/*
-
-.circle3{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    z-index: 0;
-    height: 100%;
-    background-color: #FF822E;
-    clip-path: circle(250px at right 390px);
-}
-
-*/
 /*INFO SECTION*/
 
 .info{
@@ -215,7 +180,7 @@ main{
 /*PRODUCTS SECTION*/
 
 .products-area{
-    margin-top: 15rem;
+    margin-top: 8rem;
 }
 
 .products .container{
@@ -226,11 +191,14 @@ main{
     margin: 1.5rem;
     border: none;
     cursor: pointer;
+    border-radius: .5rem;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 1.5rem;
+    box-shadow: 0 5px 10px 2px rgba(144, 149, 161, 0.26);
 }
 
 .products .card .imgCard{
@@ -345,25 +313,16 @@ main{
 
 /*FIN CARD SECTION*/
 
-
-
 /*CART SECTION*/
-
-.cart .btn-cart{
-    position: fixed;
-    top: 40%;
-    left: 1%;
-    margin: 0 0 2rem .8rem;
-}
 
 .cart .btn-cart > i{
     color: #017143;
     font-size: 2rem;
-    transition: 0.5s;
+    transition: 0.25s;
 }
 
 .cart .btn-cart > i:hover{
-    transform: translateY(-15px);
+    color: #f56613;
 }
 
 
@@ -841,7 +800,7 @@ h6{
     background-image: url('../images/banner5_Mesa\ de\ trabajo\ 1.png');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     object-fit: cover;
     height: 85vh;
     width: 100%;
@@ -902,10 +861,9 @@ h6{
         transform: rotate(10deg);
     }
 }
-
-@media (max-width: 770px) {
-    .carousel-item{
-        height: auto;
+@media (max-width: 920px) {
+    .sci{
+        display: none;
     }
 }
 
@@ -922,7 +880,9 @@ h6{
     .testimonials.card{
         width: 5rem !important;
     }
-    
+    .testimonials{
+        width: 50%;
+    }
 
 }
 
